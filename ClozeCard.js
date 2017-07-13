@@ -1,11 +1,15 @@
-function ClozeCard(text, cloze) {
-  this.cloze = cloze;
-  this.text = text;
-  this.part = text.replace(cloze, "...");
+function ClozeCard(fullText, cloze) {
+  if (fullText.includes(cloze) === false)
+  {
+  	console.log('"' + cloze + '" ' + "doesn't appear in " + '"' + fullText + '"');
+  }
+  else
+  {
+  	this.cloze = cloze;
+    this.fullText = fullText;
+    this.partial = fullText.replace(cloze, "...");
+  }
 }
-
-var card1 = new ClozeCard("George Washington is the first President of USA", "George Washington");
-console.log(card1);
 
 module.exports = ClozeCard;
  
